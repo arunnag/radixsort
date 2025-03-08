@@ -9,19 +9,19 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class RadixSortServiceTest {
+public class RadixsortingServiceTest {
 
-    private RadixSortService radixSortService;
+    private RadixsortingService radixSortingService;
 
-    // setup and tear down for RadixSortService
+    // setup and tear down for radixSortingService
     @BeforeEach
     public void setUp() {
-        radixSortService = new RadixSortService();
+        radixSortingService = new RadixsortingService();
     }
 
     @AfterEach
     public void tearDown() {
-        radixSortService = null;
+        radixSortingService = null;
     }
 
 
@@ -33,7 +33,7 @@ public class RadixSortServiceTest {
         // create sorted list
         ArrayList<Integer> sortedList = new ArrayList<>(Arrays.asList(-100000, -10000, -1000, -100, -10, -3, -2, -1, 1, 2, 3, 10, 100, 1000, 10000, 100000));
         // sort unsorted list
-        ArrayList<Integer> result = radixSortService.sort(unsortedList);
+        ArrayList<Integer> result = radixSortingService.sort(unsortedList);
         // check if sorted list is equal to result
         assertEquals(sortedList, result);
     }
@@ -47,7 +47,7 @@ public class RadixSortServiceTest {
         // create sorted list
         ArrayList<Integer> sortedList = new ArrayList<>(Arrays.asList(-100000, -100000, -100, -100, 0, 0, 0, 100, 100, 100000, 100000));
         // sort unsorted list
-        ArrayList<Integer> result = radixSortService.sort(unsortedList);
+        ArrayList<Integer> result = radixSortingService.sort(unsortedList);
         // check if sorted list is equal to result
         assertEquals(sortedList, result);
     }
@@ -60,7 +60,7 @@ public class RadixSortServiceTest {
         // create sorted list
         ArrayList<Integer> sortedList = new ArrayList<>(Arrays.asList(1, 2, 3));
         // sort unsorted list
-        ArrayList<Integer> result = radixSortService.sort(unsortedList);
+        ArrayList<Integer> result = radixSortingService.sort(unsortedList);
         // check if sorted list is equal to result
         assertEquals(sortedList, result);
     }
@@ -73,7 +73,7 @@ public class RadixSortServiceTest {
         // create sorted list
         ArrayList<Integer> sortedList = new ArrayList<>(Arrays.asList(-3, -2, -1));
         // sort unsorted list
-        ArrayList<Integer> result = radixSortService.sort(unsortedList);
+        ArrayList<Integer> result = radixSortingService.sort(unsortedList);
         // check if sorted list is equal to result
         assertEquals(sortedList, result);
     }
@@ -86,7 +86,7 @@ public class RadixSortServiceTest {
         // create empty list
         ArrayList<Integer> sortedList = new ArrayList<>();
         // sort empty list
-        ArrayList<Integer> result = radixSortService.sort(emptyList);
+        ArrayList<Integer> result = radixSortingService.sort(emptyList);
         // check if sorted list is equal to result
         assertEquals(sortedList, result);
     }

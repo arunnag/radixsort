@@ -1,7 +1,8 @@
 package com.example.radixsorting.controller;
 
 import com.example.radixsorting.dto.IntegerList;
-import com.example.radixsorting.service.RadixSortService;
+import com.example.radixsorting.service.RadixSortingService;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -20,12 +21,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @SpringBootTest
-public class RadixSortingControllerTest {
+public class RadixsortingControllerTest {
 
     private MockMvc mockMvc;
 
     @Mock
-    private RadixSortService radixSortService;
+    private RadixSortingService radixSortingService;
 
     @InjectMocks
     private RadixSortingController radixSortingController;
@@ -43,7 +44,7 @@ public class RadixSortingControllerTest {
         IntegerList integerList = new IntegerList();
         integerList.setIntegers(unsortedList);
 
-        when(radixSortService.sort(unsortedList)).thenReturn(sortedList);
+        when(radixSortingService.sort(unsortedList)).thenReturn(sortedList);
 
         mockMvc.perform(post("/sort")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -60,7 +61,7 @@ public class RadixSortingControllerTest {
         IntegerList integerList = new IntegerList();
         integerList.setIntegers(unsortedList);
 
-        when(radixSortService.sort(unsortedList)).thenReturn(sortedList);
+        when(radixSortingService.sort(unsortedList)).thenReturn(sortedList);
 
         mockMvc.perform(post("/sort")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -75,7 +76,7 @@ public class RadixSortingControllerTest {
         IntegerList integerList = new IntegerList();
         integerList.setIntegers(emptyList);
 
-        when(radixSortService.sort(emptyList)).thenReturn(emptyList);
+        when(radixSortingService.sort(emptyList)).thenReturn(emptyList);
 
         mockMvc.perform(post("/sort")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -90,7 +91,7 @@ public class RadixSortingControllerTest {
         IntegerList integerList = new IntegerList();
         integerList.setIntegers(singleElementList);
 
-        when(radixSortService.sort(singleElementList)).thenReturn(singleElementList);
+        when(radixSortingService.sort(singleElementList)).thenReturn(singleElementList);
 
         mockMvc.perform(post("/sort")
                 .contentType(MediaType.APPLICATION_JSON)

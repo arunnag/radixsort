@@ -26,7 +26,7 @@ import java.util.ArrayList;
  * It has a time complexity of O(n * k), where k is the number of digits, n is the number of integers.
  */
 @Service
-public class RadixSortService {
+public class RadixsortingService {
     /**
      * Sorts the list of Integers using radix sort algorithm
      * @param unSortedIntegers list of Integers to be sorted
@@ -36,7 +36,6 @@ public class RadixSortService {
         return radixSort(unSortedIntegers);
     }
     
-
     private ArrayList<Integer> radixSort(ArrayList<Integer> integers) {
 
         if (integers.size() == 0) {
@@ -57,16 +56,17 @@ public class RadixSortService {
 
     private ArrayList<Integer> countingSortByDigit(ArrayList<Integer> integers, int exp) {
         int n = integers.size();
-        ArrayList<Integer> output = new ArrayList<>(n); // output array
+        ArrayList<Integer> output = new ArrayList<>(n);
         for (int i = 0; i < n; i++) {
             output.add(0);
         }
         final int bucketLength = 19; // 20 buckets for digits -9 to 9
+        final int bucketOffset = 9;
         int[] count = new int[bucketLength];
 
         // Store count of occurrences in count[]
         for (int i = 0; i < n; i++) {
-            int index = (integers.get(i) / exp) % 10 + 9; // Shift range from -9 to 9 to 0 to 18
+            int index = (integers.get(i) / exp) % 10 + bucketOffset; // Shift range from -9 to 9 to 0 to 18
             count[index]++;
         }
 
@@ -78,7 +78,7 @@ public class RadixSortService {
 
         // Build the output array
         for (int i = n - 1; i >= 0; i--) {            
-            int index = (integers.get(i) / exp) % 10 + 9;
+            int index = (integers.get(i) / exp) % 10 + bucketOffset;
             output.set(count[index] - 1, integers.get(i));
             count[index]--;
         }
