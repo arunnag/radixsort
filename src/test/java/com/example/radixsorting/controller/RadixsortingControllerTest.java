@@ -1,7 +1,7 @@
 package com.example.radixsorting.controller;
 
 import com.example.radixsorting.dto.IntegerList;
-import com.example.radixsorting.service.RadixSortingService;
+import com.example.radixsorting.service.RadixsortingService;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,10 +26,10 @@ public class RadixsortingControllerTest {
     private MockMvc mockMvc;
 
     @Mock
-    private RadixSortingService radixSortingService;
+    private RadixsortingService radixSortingService;
 
     @InjectMocks
-    private RadixSortingController radixSortingController;
+    private RadixsortingController radixSortingController;
 
     @BeforeEach
     public void setUp() {

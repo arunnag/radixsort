@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.radixsorting.dto.IntegerList;
-import com.example.radixsorting.service.RadixSortingService;
+import com.example.radixsorting.service.RadixsortingService;
 
 import jakarta.validation.Valid;
 
@@ -25,7 +25,7 @@ public class RadixsortingController {
      * Service for radix sort
      */
     @Autowired
-    private RadixSortingService radixSortingService;
+    private RadixsortingService radixSortingService;
 
     /**
      * Sorts the list of integers using radix sort service
