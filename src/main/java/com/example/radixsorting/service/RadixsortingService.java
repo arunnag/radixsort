@@ -2,6 +2,7 @@ package com.example.radixsorting.service;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import org.slf4j.Logger;
 import org.springframework.stereotype.Service;
 
 /**
@@ -28,8 +29,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RadixsortingService {
   /** Logger for RadixsortingService */
-  private static final org.slf4j.Logger logger =
-      org.slf4j.LoggerFactory.getLogger(RadixsortingService.class);
+  private static final Logger logger = org.slf4j.LoggerFactory.getLogger(RadixsortingService.class);
 
   /**
    * Sorts a list of integers using the Radix Sort algorithm. The method handles both positive and
