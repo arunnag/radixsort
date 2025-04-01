@@ -17,6 +17,16 @@ public class RadixsortingIntegrationTest {
 
   @Autowired private TestRestTemplate restTemplate;
 
+  /*
+   * Tests the /api/v1/sort endpoint of the RadixsortingController.
+   * It sends a POST request with a list of integers and checks if the response
+   * contains the sorted list of integers.
+   * The test uses the TestRestTemplate to send the request and receive the response.
+   * The test checks if the response status is OK (200) and if the body contains
+   * the expected sorted list of integers.
+   * The test also checks if the response body is not null and contains the expected
+   * sorted list of integers.
+   */
   @Test
   public void testRadixSortEndpoint() {
     String url = "/api/v1/sort";
@@ -30,6 +40,15 @@ public class RadixsortingIntegrationTest {
     assertThat(response.getBody().getIntegers()).containsExactly(2, 24, 45, 66, 75, 90, 170, 802);
   }
 
+  /*
+   * Tests the /api/v1/sort endpoint of the RadixsortingController.
+   * It sends a POST request with a list of strings and checks if the response
+   * contains a bad request status (400) with a message indicating that the input
+   * is not valid.
+   * The test uses the TestRestTemplate to send the request and receive the response.
+   * The test checks if the response status is BAD_REQUEST (400) and if the body
+   * contains the expected error message.
+   */
   @Test
   public void testRadixSortEndpointWithStringList() {
     String url = "/api/v1/sort";
@@ -41,6 +60,15 @@ public class RadixsortingIntegrationTest {
     assertThat(response.getBody()).contains("Malformed JSON request");
   }
 
+  /*
+   * Tests the /api/v1/sort endpoint of the RadixsortingController.
+   * It sends a POST request with an empty request body and checks if the response
+   * contains a bad request status (400) with a message indicating that the input
+   * is not valid.
+   * The test uses the TestRestTemplate to send the request and receive the response.
+   * The test checks if the response status is BAD_REQUEST (400) and if the body
+   * contains the expected error message.
+   */
   @Test
   public void testRadixSortEndpointWithEmptyRequestBody() {
     String url = "/api/v1/sort";
@@ -49,7 +77,17 @@ public class RadixsortingIntegrationTest {
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
   }
 
-  // add a test check if millions of integers are sorted correctly
+  /*
+   * Tests the /api/v1/sort endpoint of the RadixsortingController.
+   * It sends a POST request with a large input list of random integers
+   * and checks if the response
+   * contains the sorted list of integers.
+   * The test uses the TestRestTemplate to send the request and receive the response.
+   * The test checks if the response status is OK (200) and if the body contains
+   * the expected sorted list of integers.
+   * The test also checks if the response body is not null and contains the expected
+   * sorted list of integers.
+   */
   @Test
   public void testRadixSortEndpointWithLargeInput() {
     String url = "/api/v1/sort";

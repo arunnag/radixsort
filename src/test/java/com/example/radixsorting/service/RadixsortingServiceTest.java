@@ -24,6 +24,12 @@ public class RadixsortingServiceTest {
     radixSortingService = null;
   }
 
+  /*
+   * Tests the sorting of 100,000 random integers using the radix sorting algorithm.
+   * It generates a list of random integers,
+   * sorts them using the radix sorting algorithm,
+   * and compares the result with the expected sorted list.
+   */
   @Test
   public void testSort100kRandomIntegers() {
 
@@ -40,6 +46,14 @@ public class RadixsortingServiceTest {
     assertEquals(sortedList, radixSortingService.sort(unsortedList));
   }
 
+  /*
+   * Tests the sorting of a list of random integers.
+   * It generates a list of random integers,
+   * sorts them using the radix sorting algorithm,
+   * and compares the result with the expected sorted list.
+   * The test uses a predefined list of integers to ensure the sorting algorithm works correctly.
+   * The test checks if the sorted list is equal to the expected sorted list.
+   */
   @Test
   public void testSortRandomIntegers() {
     ArrayList<Integer> unsortedList =
@@ -56,6 +70,13 @@ public class RadixsortingServiceTest {
     assertEquals(sortedList, result);
   }
 
+  /*
+   * Tests the sorting of a list of large numbers using the radix sorting algorithm.
+   * It generates a list of large numbers,
+   * sorts them using the radix sorting algorithm,
+   * and compares the result with the expected sorted list.
+   * The test uses a predefined list of integers to ensure the sorting algorithm works correctly.
+   */
   @Test
   public void testSortLargeNumbers() {
     ArrayList<Integer> unsortedList =
@@ -68,6 +89,9 @@ public class RadixsortingServiceTest {
     assertEquals(sortedList, result);
   }
 
+  /*
+   * Test sorting of just positive numbers with radix sorting algorithm.
+   */
   @Test
   public void testSort() {
     ArrayList<Integer> unsortedList = new ArrayList<>(Arrays.asList(3, 1, 2));
@@ -76,6 +100,9 @@ public class RadixsortingServiceTest {
     assertEquals(sortedList, result);
   }
 
+  /*
+   * Test sorting of just negative numbers with radix sorting algorithm.
+   */
   @Test
   public void testSortNegativeNumbers() {
     ArrayList<Integer> unsortedList = new ArrayList<>(Arrays.asList(-3, -1, -2));
@@ -84,6 +111,9 @@ public class RadixsortingServiceTest {
     assertEquals(sortedList, result);
   }
 
+  /*
+   * Test sorting of a empty list with randix sorting algorithm.
+   */
   @Test
   public void testSortEmptyList() {
     ArrayList<Integer> emptyList = new ArrayList<>();
@@ -92,6 +122,9 @@ public class RadixsortingServiceTest {
     assertEquals(sortedList, result);
   }
 
+  /*
+   * Test sorting of a null list with radix sorting algorithm.
+   */
   @Test
   public void testSortNullList() {
     ArrayList<Integer> nullList = null;

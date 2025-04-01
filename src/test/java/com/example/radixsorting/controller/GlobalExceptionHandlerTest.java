@@ -14,6 +14,12 @@ public class GlobalExceptionHandlerTest {
 
   private final GlobalExceptionHandler handler = new GlobalExceptionHandler();
 
+  /*
+   * Tests the {@code handleGenericException} method of the {@code GlobalExceptionHandler} class.
+   * If an exception is thrown, it results in a 500 Internal Server Error
+   * with a generic error message.
+   * This is a fallback for all uncaught exceptions.
+   */
   @Test
   void testHandleGenericException() {
     Exception ex = new RuntimeException("Something went wrong");
@@ -26,6 +32,10 @@ public class GlobalExceptionHandlerTest {
     assertTrue(response.getBody().get("error").contains("Something went wrong"));
   }
 
+  /*
+   * Tests the {@code handleHttpMessageNotReadableException} method of the {@code GlobalExceptionHandler} class.
+   * If message is not readable it results in bad request
+   */
   @Test
   void testHandleHttpMessageNotReadableException() {
     HttpMessageNotReadableException ex =
