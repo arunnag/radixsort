@@ -57,7 +57,7 @@ public class RadixsortingIntegrationTest {
         restTemplate.postForEntity(url, invalidInputList, String.class);
 
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
-    assertThat(response.getBody()).contains("Malformed JSON request");
+    assertThat(response.getBody()).contains("Malformed Request body");
   }
 
   /*
@@ -73,7 +73,6 @@ public class RadixsortingIntegrationTest {
   public void testRadixSortEndpointWithEmptyRequestBody() {
     String url = "/api/v1/sort";
     ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class);
-
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
   }
 
